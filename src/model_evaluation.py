@@ -32,3 +32,38 @@ def interpret_feature_importance(model, feature_names: list[str]) -> pd.DataFram
         return df
     except AttributeError:
         raise ValueError("The provided model does not support feature_importances_")
+
+
+def extract_feature_names_from_pipeline(pipeline) -> list[str]:
+    """Attempt to reconstruct feature names from a preprocessing pipeline.
+
+    Works with the project's `build_preprocessing_pipeline` structure.
+    """
+    try:
+        numeric_features = ["tenure", "MonthlyCharges", "TotalCharges", "AvgChargesPerMonth"]
+
+        cat_transformer = pipeline.named_steps["preprocessor"].named_transformers_["cat"].named_steps["onehot"]
+        cat_inputs = [
+            "gender",
+            "SeniorCitizen",
+            "Partner",
+            "Dependents",
+            "PhoneService",
+            "MultipleLines",
+            "InternetService",
+            "OnlineSecurity",
+            "OnlineBackup",
+            "DeviceProtection",
+            "TechSupport",
+            "StreamingTV",
+            "StreamingMovies",
+            "Contract",
+            "PaperlessBilling",
+            "PaymentMethod",
+            "tenure_bucket",
+        ]
+        cat_features = list(cat_transformer.get_feature_names_out(cat_inputs))
+        feature_names = numeric_features + cat_features
+        return feature_names
+    except Exception as exc:
+        raise RuntimeError("Unable to extract feature names from pipeline") from exc

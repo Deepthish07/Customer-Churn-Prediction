@@ -47,7 +47,7 @@ pip install -r requirements.txt
 3. Train the pipeline and save artifacts:
 
 ```bash
-python run_all.py
+python run_all.py --reports-dir reports
 ```
 
 4. Launch the interactive dashboard:
@@ -55,6 +55,12 @@ python run_all.py
 ```bash
 streamlit run app.py
 ```
+
+## New features added
+
+- CLI option in `run_all.py` to write evaluation reports and plots to `reports/` (use `--reports-dir`).
+- Logging helper at `src/logger.py` and a top-level `config.yaml` for common paths.
+- The training run now saves metrics JSON and PNG plots (`churn_distribution.png`, `feature_importance.png`, `correlation_matrix.png`) to the reports folder.
 
 ## Notes
 

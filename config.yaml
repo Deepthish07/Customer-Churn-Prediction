@@ -1,0 +1,4 @@
+reports_dir: reports
+log_file: logs/app.log
+model_path: models/trained_models/churn_pipeline.joblib
+raw_data_path: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
