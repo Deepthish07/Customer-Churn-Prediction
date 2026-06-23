@@ -72,3 +72,8 @@ streamlit run app.py
 - Unique synthetic fallback ensures the project runs even without the original data file.
 - Business-ready retention insights turn churn scores into action recommendations.
 - Clean modular code and production-ready model artifact saving make this repo deployment friendly.
+
+
+## LICENCE 
+  Author - Deepthish 
+  Mail id - deepthishraj@gmail.com
