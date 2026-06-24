@@ -75,5 +75,6 @@ streamlit run app.py
 
 
 ## LICENCE 
-  Author - Deepthish 
-  Mail id - deepthishraj@gmail.com
+  - Author - Deepthish 
+  - Mail id - deepthishraj@gmail.com
+  - Linked In - www.linkedin.com/in/deepthish-d-422181242
